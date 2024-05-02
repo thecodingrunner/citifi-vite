@@ -1,0 +1,322 @@
+.no-overflow {
+    /* position: relative; */
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+.cutoff {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+.hex {
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    position: absolute;
+}
+
+.hex:focus {
+    background-color: var(--text-yellow);
+    outline: none;
+}
+
+.small-hex {
+    width: 250px;
+    height: 250px;
+    z-index: 2;
+
+    opacity: 0.8;
+    background: var(--text-gray);
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.36);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: black;
+}
+
+.small-hex:hover {
+    background-color: var(--text-yellow);
+    outline: none;
+}
+
+.large-hex {
+    width: 800px;
+    height: 800px;
+    top: calc(50% - 400px);
+    left: calc(50% - 400px);
+    background-color: var(--text-yellow);
+    z-index: 1;
+    opacity: 0.5;
+    animation: pulse 3s ease-in-out infinite alternate;
+}
+
+.circle {
+    height: 380px;
+    width: 380px;
+    border-radius: 50%;
+    background-color: var(--text-yellow);
+    animation: pulse 3s ease-in-out infinite alternate;
+    position: absolute;
+    top: calc(50% - 190px);
+    left: calc(50% - 190px);
+}
+
+@keyframes pulse {
+    from {transform: scale(1);}
+    to {transform: scale(1.05);}
+}
+
+.hex1 {
+    top: calc(50% - 250px);
+    left: calc(50% - 125px);
+    transition: ease 2s;
+}
+
+.hex2 {
+    top: calc(50% - 0px);
+    left: calc(50% - 125px);
+    transition: ease 2s;
+}
+
+.hex3 {
+    top: calc(50% - 125px);
+    left: calc(50% - 325px);
+    transition: ease 2s;
+}
+
+.hex4 {
+    top: calc(50% - 125px);
+    left: calc(50% + 75px);
+    transition: ease 2s;
+}
+
+.viewHex1 {
+    transform: translateY(150px) scale(5);
+    background-image: url('../../assets/citifi-background-4.avif');
+}
+
+.viewHex {
+    opacity: 1;
+    color: transparent;
+    z-index: 99;
+    background-size: cover;
+    pointer-events: all;
+}
+
+.textHex {
+    opacity: 0;
+    transition: ease 2s;
+    color: white;
+    position: absolute;
+    width: 50vw;
+    z-index: 100;
+    text-align: center;
+    pointer-events: none;
+    background-color: var(--text-yellow);
+    padding: 20px 30px;
+}
+
+.textHex1 {
+    top: calc(50% - 250px);
+    left: calc(50% - 25vw);
+}
+
+.viewHex2 {
+    transform: translateY(-100px) scale(5);
+    background-image: url('../../assets/citifi-background-2.avif');
+}
+
+.textHex2 {
+    top: calc(50% - 225px);
+    left: calc(50% - 25vw);
+}
+
+.viewHex3 {
+    transform: translateX(200px) scale(5);
+    background-image: url('../../assets/citifi-background-5.avif');
+}
+
+.textHex3 {
+    top: calc(50% - 225px);
+    left: calc(50% - 25vw);
+}
+
+.viewHex4 {
+    transform: translateY(50px) translateX(-200px) scale(5);
+    background-image: url('../../assets/citifi-background-1.avif');
+}
+
+.textHex4 {
+    top: calc(50% - 225px);
+    left: calc(50% - 25vw);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+.textView {
+    opacity: 1;
+}
+
+.strategy-link {
+    position: absolute;
+    bottom: 60px;
+    left: calc(50% - 80px);
+    color: black;
+    font-size: 2rem;
+    text-decoration: none;
+    z-index: 5;
+}
+
+.strategy-link:hover {
+    color: var(--text-gray);
+}
+
+.strategy-link:active {
+    transform: scale(0.95);
+}
+
+/* MEDIUM DEVICES */
+
+@media screen and (max-width: 1200px) {
+    p {
+        font-size: 1.4rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .textHex {
+        width: 60vw;
+    }
+
+    .textHex1,
+    .textHex2,
+    .textHex3,
+    .textHex4 {
+        left: calc(50% - 30vw);
+    }
+}
+
+/* SMALL DEVICES */
+
+@media screen and (max-width: 700px) {
+
+    .hexagons {
+        margin-bottom: 100px;
+    }
+
+    .hex1 {
+        top: calc(150px);
+        left: calc(50% - 125px);
+        transition: ease 2s;
+        background-color: var(--text-yellow);
+    }
+    
+    .hex2 {
+        top: calc(400px);
+        left: calc(50% - 125px);
+        transition: ease 2s;
+        background-color: var(--text-yellow);
+    }
+    
+    .hex3 {
+        top: calc(650px);
+        left: calc(50% - 125px);
+        transition: ease 2s;
+        background-color: var(--text-yellow);
+    }
+    
+    .hex4 {
+        top: calc(900px);
+        left: calc(50% - 125px);
+        transition: ease 2s;
+        background-color: var(--text-yellow);
+    }
+
+    .strategy-link {
+        position: absolute;
+        top: calc(1150px);
+        z-index: 999;
+        padding-bottom: 150px;
+    }
+
+    .circle {
+        display: none;
+    }
+
+    .large-hex {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2rem;
+        /* color: black; */
+    }
+    
+    p {
+        font-size: 1.2rem;
+    }
+
+    .viewHex1 {
+        transform: translateY(350px) scale(5);
+        background-image: url('../../assets/citifi-background-4.avif');
+    }
+
+    .viewHex2 {
+        transform: translateY(100px) scale(5);
+        background-image: url('../../assets/citifi-background-2.avif');
+    }
+
+    .viewHex3 {
+        transform: translateX(-50px) translateY(-150px) scale(5);
+        background-image: url('../../assets/citifi-background-5.avif');
+    }
+
+    .viewHex4 {
+        transform: translateY(-400px) translateX(0px) scale(5);
+        background-image: url('../../assets/citifi-background-1.avif');
+    }
+
+    .textHex {
+        width: 80vw;
+    }
+
+    .textHex2, .textHex1, .textHex3, .textHex4 {
+        left: calc(50% - 40vw);
+        top: calc(50% - 230px);
+    }
+
+    .no-overflow {
+        /* position: relative; */
+        overflow: auto;
+        /* height: 100vh; */
+        position: relative;
+    }
+
+    .cutoff {
+        overflow: hidden;
+        height: 100vh;
+        position: relative;
+    }
+}
+
+/* .what-body {
+    overflow: hidden;
+    height: 100vh;
+} */
+

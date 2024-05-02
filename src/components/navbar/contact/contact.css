@@ -1,0 +1,97 @@
+.contact-float {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    background-color: var(--text-yellow);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 990;
+}
+.contact-float span {
+    padding-bottom: 5px;
+}
+
+.contact-popup {
+    position: fixed;
+    top: calc(50% - 32vh);
+    height: auto;
+    left: calc(50% - 20vw);
+    width: 40vw;
+    background-color: white;
+    color: var(--text-yellow);
+    z-index: 9999;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.4);
+}
+
+.contact-popup h1 {
+    margin: 0 0 20px;
+}
+
+.contact-popup div.exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+}
+
+.contact-popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input, form textarea, form button {
+    border: solid 2px var(--text-yellow);
+    color: var(--text-yellow);
+    outline: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    resize: none;
+}
+
+form button {
+    background-color: white;
+    transition: 0.5s ease;
+}
+
+form button:hover {
+    background-color: var(--text-yellow);
+    color: white;
+}
+
+@media screen and (max-width: 1000px) {
+    .contact-popup {
+        width: 70vw;
+        left: calc(50% - 35vw);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    form input, form textarea, form button {
+        font-size: 1rem;
+    }
+
+    .contact-popup {
+        width: 90vw;
+        left: calc(50% - 45vw);
+        padding: 20px;
+        top: calc(50% - 25vh);
+    }
+
+    .contact-popup h1 {
+        font-size: 2rem;
+    }
+
+    .contact-float {
+        right: calc(50% - 85px);
+        bottom: 2rem;
+    }
+}

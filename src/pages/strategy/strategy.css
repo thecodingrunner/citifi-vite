@@ -1,0 +1,196 @@
+.strategy-body {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+.triangle {
+    height: 250px;
+    width: 250px;
+    background: var(--text-yellow);
+    position: absolute;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    font-size: 1.5rem;
+    transition: ease 2s;
+    border: none;
+}
+
+.triangle:focus, .triangle:hover {           
+    font-size: 2rem;
+    font-weight: 700;
+    outline: none;
+}
+
+.triangle-up {
+    /* aspect-ratio: 1/cos(30deg); */
+    clip-path: polygon(50% 0,100% 100%,0 100%);
+    padding-top: 70px;
+}
+
+
+.triangle-down {
+    /* aspect-ratio: 1/cos(30deg); */
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+    padding-bottom: 70px;
+}
+
+.triangle1 {
+    top: calc(50% - 210px - 25px);
+    left: calc(50% - 220px - 50px);
+}
+
+.triangle2 {
+    top: calc(50% + 10px + 25px);
+    left: calc(50% - 100px - 25px);
+}
+
+.triangle3 {
+    top: calc(50% - 210px - 25px);
+    left: calc(50% + 20px);
+}
+
+.triangle4 {
+    top: calc(50% - 210px - 25px);
+    left: calc(50% - 100px - 25px);
+}
+
+.triangle5 {
+    top: calc(50% + 10px + 25px);
+    left: calc(50% - 220px - 50px);
+}
+
+.triangle6 {
+    top: calc(50% + 10px + 25px);
+    left: calc(50% + 20px);
+}
+
+.hex {
+    height: 625px;
+    width: 600px;
+    position: absolute;
+    top: calc(50% - 290px);
+    left: calc(50% - 300px);
+    background-color: var(--text-gray);
+    /* animation: pulse 3s ease-in-out infinite alternate; */
+}
+
+.viewTriangle {
+    z-index: 99;
+    color: transparent;
+    user-select: none; 
+}
+
+.viewTriangle1 {
+    transform: translateX(150px) scale(6);
+}
+
+.viewTriangle2 {
+    transform: translateX(0px) translateY(-150px) scale(6);
+}
+
+.viewTriangle3 {
+    transform: translateX(-150px) scale(6);
+}
+
+.viewTriangle4 {
+    transform: translateX(0px) translateY(200px) scale(6);
+}
+
+.viewTriangle5 {
+    transform: translateX(150px) scale(6);
+}
+
+.viewTriangle6 {
+    transform: translateX(-150px) scale(6);
+}
+
+.text {
+    position: absolute;
+    top: calc(50% - 150px);
+    left: calc(50% - 25vw);
+    width: 50vw;
+    color: black;
+    opacity: 0;
+    transition: ease 2s;
+    pointer-events: none;
+    z-index: 999;
+    text-align: center;
+}
+
+.text h1 {
+    color: black;
+}
+
+.textTriangle1,
+.textTriangle2,
+.textTriangle3,
+.textTriangle4,
+.textTriangle5,
+.textTriangle6 {
+    opacity: 1;
+}
+
+.reference {
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 190px);
+}
+
+.arrow-right {
+    font-size: 7rem;
+    position: fixed;
+    right: 10px;
+    top: calc(50% - 3.5rem);
+    color: black;
+    z-index: 99;
+}
+
+.arrow-right:hover {
+    color: var(--text-yellow);
+}
+
+.flash {
+    animation: flash 1s ease infinite alternate;
+}
+
+@keyframes flash {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* SMALL DEVICES */
+
+@media screen and (max-width: 850px) {
+    .arrow-right {
+        font-size: 4rem;
+        right: 5px;
+        top: calc(50% - 2rem);
+    }
+
+    .text {
+        left: calc(50% - 35vw);
+        width: 70vw; 
+    }
+
+    .reference {
+        position: absolute;
+        bottom: 5px;
+        left: calc(50% - 47.5vw);
+        width: 95vw;
+        text-align: center;
+        line-height: 0.8rem;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+}

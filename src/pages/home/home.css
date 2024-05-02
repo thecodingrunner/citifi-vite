@@ -1,0 +1,110 @@
+/* html {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+} */
+
+.home-body {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hex-background {
+    position: absolute;
+    top: calc(50% - 500px);
+    left: calc(50% - 500px);
+    height: 1000px;
+    width: 1000px;
+    z-index: 1;
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    background-color: var(--text-yellow);
+    animation: pulse 2s ease-in-out infinite alternate;
+}
+
+.hex-image {
+    position: absolute;
+    top: calc(50% - 450px);
+    left: calc(50% - 450px);
+    z-index: 2;
+    height: 900px;
+    width: 900px;
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    background-image: url('../../assets/citifi-background-6.avif');
+    background-size: cover;
+    background-position: center;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+.textHome h1 {
+    color: var(--text-yellow);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.textHome {
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 40vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    width: 80vw;
+    color: var(--text-yellow);
+    z-index: 99;
+}
+
+.textHome button {
+    border: 5px solid var(--text-yellow);
+    /* background-color: var(--text-yellow); */
+    background-color: rgba(0,0,0,0.3);
+    font-family: inherit;
+    font-size: 1.3rem;
+    padding: 5px 30px;
+    font-weight: bold;
+    color: var(--text-yellow);
+}
+
+.textHome button:active {
+    transform: scale(0.99);
+}
+
+
+/* SMALL DEVICES */
+
+@media screen and (max-width: 850px) {
+    .textHome {
+        max-width: 70vw;
+        left: calc(50% - 35vw);
+        top: calc(50% - 120px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hex-background {
+        height: 650px;
+        width: 650px;
+        top: calc(50% - 275px);
+        left: calc(50% - 325px);
+    }
+
+    .hex-image {
+        height: 600px;
+        width: 600px;
+        top: calc(50% - 250px);
+        left: calc(50% - 300px);
+    }
+}
