@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './what.css'
 import { Link } from 'react-router-dom'
 
@@ -9,7 +9,12 @@ const What = () => {
   const [hex4active, sethex4active] = useState(false)
   const [active, setActive] = useState(false)
 
+  useEffect(() => {
+    console.log(window.screenY)
+  }, [window.screenY])
+
   function setHex1() {
+    console.log(document.documentElement.scrollTop);
     sethex1active(state => !state);
     setActive(state => !state);
   }
@@ -25,6 +30,10 @@ const What = () => {
   }
 
   function setHex4() {
+    // if (!hex4active) {
+    //   window.scrollTo(0,0)
+    // }
+    console.log(document.body.scrollTop);
     sethex4active(state => !state);
     setActive(state => !state);
   }

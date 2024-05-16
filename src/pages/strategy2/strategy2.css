@@ -45,15 +45,17 @@
     .body-strategy2 {
         flex-direction: column;
         margin-bottom: 150px;
+        margin-left: 20px;
     }
 
     .text-strategy2 {
         max-width: 80vw;
+        /* text-align: center; */
     }
 
     .arrow-left {
         font-size: 4rem;
-        left: 15px;
+        left: 5px;
         top: calc(50% - 2rem);
     }
 

@@ -91,7 +91,8 @@ form button:hover {
     }
 
     .contact-float {
-        right: calc(50% - 85px);
+        right: calc(50% - 95px);
         bottom: 2rem;
+        box-shadow: 0 0.5rem 0.7rem rgba(0,0,0,0.4);
     }
 }

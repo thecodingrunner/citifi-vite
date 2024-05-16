@@ -78,24 +78,28 @@
     top: calc(50% - 250px);
     left: calc(50% - 125px);
     transition: ease 2s;
+    z-index: 10;
 }
 
 .hex2 {
     top: calc(50% - 0px);
     left: calc(50% - 125px);
     transition: ease 2s;
+    z-index: 10;
 }
 
 .hex3 {
     top: calc(50% - 125px);
     left: calc(50% - 325px);
     transition: ease 2s;
+    z-index: 10;
 }
 
 .hex4 {
     top: calc(50% - 125px);
     left: calc(50% + 75px);
     transition: ease 2s;
+    z-index: 10;
 }
 
 .viewHex1 {
@@ -125,7 +129,7 @@
 }
 
 .textHex1 {
-    top: calc(50% - 250px);
+    top: calc(50% - 225px);
     left: calc(50% - 25vw);
 }
 
@@ -150,7 +154,7 @@
 }
 
 .viewHex4 {
-    transform: translateY(50px) translateX(-200px) scale(5);
+    transform: translateY(10px) translateX(-200px) scale(5);
     background-image: url('../../assets/citifi-background-1.avif');
 }
 
@@ -173,7 +177,7 @@ p {
 
 .strategy-link {
     position: absolute;
-    bottom: 60px;
+    bottom: 30px;
     left: calc(50% - 80px);
     color: black;
     font-size: 2rem;
@@ -251,7 +255,7 @@ p {
     .strategy-link {
         position: absolute;
         top: calc(1150px);
-        z-index: 999;
+        z-index: 4;
         padding-bottom: 150px;
     }
 
@@ -273,22 +277,22 @@ p {
     }
 
     .viewHex1 {
-        transform: translateY(350px) scale(5);
+        transform: translateY(350px) scale(4);
         background-image: url('../../assets/citifi-background-4.avif');
     }
 
     .viewHex2 {
-        transform: translateY(100px) scale(5);
+        transform: translateY(50px) scale(4);
         background-image: url('../../assets/citifi-background-2.avif');
     }
 
     .viewHex3 {
-        transform: translateX(-50px) translateY(-150px) scale(5);
+        transform: translateY(-150px) scale(4);
         background-image: url('../../assets/citifi-background-5.avif');
     }
 
     .viewHex4 {
-        transform: translateY(-400px) translateX(0px) scale(5);
+        transform: translateY(-400px) translateX(0px) scale(4);
         background-image: url('../../assets/citifi-background-1.avif');
     }
 
@@ -298,7 +302,7 @@ p {
 
     .textHex2, .textHex1, .textHex3, .textHex4 {
         left: calc(50% - 40vw);
-        top: calc(50% - 230px);
+        top: calc(50% - 100px);
     }
 
     .no-overflow {
@@ -309,7 +313,7 @@ p {
     }
 
     .cutoff {
-        overflow: hidden;
+        overflow-x: hidden;
         height: 100vh;
         position: relative;
     }

@@ -54,6 +54,7 @@
 
     html {
         overflow-y: auto;
+        overflow-x: hidden;
     }
 
     .profile__text {
