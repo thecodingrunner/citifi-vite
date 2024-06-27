@@ -7,7 +7,13 @@ React website created for city branding company.
 The goal of this project was to create a sleek and professional website for a local city branding consultancy. The client requested a modern design with a hexagon theme and honeycomb color theme.
 
 <h2>Webstack and Explanation</h2>
-React, CSS, HTML, EmailJS
+<ul>
+  <li>React</li>
+  <li>CSS</li>
+  <li>HTML</li>
+  <li>EmailJS</li>
+</ul>
+
 This project combines thoughtful design and robust functionality. Initially conceptualized in Figma, it was then developed using React. Key features include a fully responsive layout optimized for all device sizes, smooth CSS animations to enhance user engagement, and an integrated EmailJS contact form for efficient communication. The primary challenges involved striking a balance between creativity and consistency to meet the client's vision, while ensuring seamless responsiveness across various screens. These obstacles were successfully overcome, resulting in a polished, user-friendly website that effectively serves its purpose.
 <p></p>
 
