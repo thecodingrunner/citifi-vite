@@ -7,7 +7,7 @@ const Home = () => {
       <div className='hex-background'></div>
       <div className='hex-image'></div>
       <div className='textHome'>
-        <h1>marketing, communications, public affairs</h1>
+        <h1>Place Marketing Specialists</h1>
         <div className='button-background'>
         </div>
       </div>

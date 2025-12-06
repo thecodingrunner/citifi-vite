@@ -75,9 +75,9 @@ const Strategy = () => {
         Source: Anholt/Competitive Identity, place branding equity model
       </div>
 
-      <Link to='/strategy2' className='arrow-right'>
+      {/* <Link to='/strategy2' className='arrow-right'>
         <MdArrowForwardIos />
-      </Link>
+      </Link> */}
 
     </div>
   )

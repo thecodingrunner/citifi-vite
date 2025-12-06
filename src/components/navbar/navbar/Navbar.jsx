@@ -11,7 +11,6 @@ const Navbar = () => {
     setMenu(prevState => !prevState)
   }
 
-
   return (
     <nav className='nav'>
         <Link to='/' className='site-title'>
@@ -20,6 +19,8 @@ const Navbar = () => {
         <ul className='main-menu'>
             <CustomLink to='/what' className='link' >What we do</CustomLink>
             <CustomLink to='/who' className='link' >Who we are</CustomLink>
+            <CustomLink to='/experience' className='link' onClick={showMenu}>Our experience</CustomLink>
+            <CustomLink to='/socials' className='link' onClick={showMenu}>Socials</CustomLink>
         </ul>
 
         <button className={`hamburger`} onClick={showMenu} name='hamburger'>
@@ -31,6 +32,8 @@ const Navbar = () => {
         <div className={`hamburger-menu ${menu ? 'show' : ''}`}>
             <CustomLink to='/what' className='link' onClick={showMenu}>What we do</CustomLink>
             <CustomLink to='/who' className='link' onClick={showMenu}>Who we are</CustomLink>
+            <CustomLink to='/experience' className='link' onClick={showMenu}>Our experience</CustomLink>
+            <CustomLink to='/socials' className='link' onClick={showMenu}>Socials</CustomLink>
         </div>
     </nav>
   )

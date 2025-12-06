@@ -1,0 +1,104 @@
+.experience-body {
+    width: 100vw;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 25px;
+    padding-top: 100px;
+    padding-inline: 60px;
+}
+
+.sheff-bg-img {
+    background-image: url('../../assets/sheffield-bg-img.jpg');
+    background-size: cover;
+}
+
+.notts-bg-img {
+    background-image: url('../../assets/nottingham-bg-img.jpg');
+    background-size: cover;
+}
+
+.north-bg-img {
+    background-image: url('../../assets/northampton-bg-img.jpg');
+    background-size: cover;
+}
+
+.sal-bg-img {
+    background-image: url('../../assets/salisbury-bg-img.jpg');
+    background-size: cover;
+}
+
+.woking-bg-img {
+    background-image: url('../../assets/woking-bg-img.jpg');
+    background-size: cover;
+}
+
+.experience-hex a {
+    opacity: 0;
+    transition: ease 0.5s;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.experience-hex {
+    height: 220px;
+    width: 220px;
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    background-color: var(--text-yellow);
+    margin-inline: auto auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    position: relative;
+}
+
+.hex-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transition: ease 0.5s;
+}
+
+.experience-hex:hover .hex-cover {
+    opacity: 0.5;
+}
+
+.experience-hex:hover a {
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .experience-body {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-hex {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .experience-body {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .experience-hex {
+        height: 250px;
+        width: 250px;
+    }
+}
