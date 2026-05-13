@@ -10,6 +10,31 @@
     background-color: transparent;
     z-index: 999;
 }
+/* 
+.main-menu {
+    background-color: rgba(0, 0, 0, 50%);
+    padding: 20px 40px;
+    border-radius: 10px;
+    border: 4px solid rgba(159, 159, 159, 0.4);
+} */
+
+.main-menu {
+    /* Glass morphism background */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    padding: 20px 40px;
+    border-radius: 10px;
+    
+    /* Refined border for glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Optional: Add subtle shadow for depth */
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
 
 .logo {
     max-width: 200px;
@@ -23,9 +48,9 @@ ul {
 
 .link {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: inherit;
-    font-weight: 600;
+    font-weight: 300;
 }
 
 .link:hover {
@@ -100,7 +125,7 @@ ul {
         display: block;
         position: absolute;
         top: 30px;
-        right: 5px;
+        right: 30px;
         font-size: 3rem;
     }
 

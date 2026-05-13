@@ -8,8 +8,9 @@ import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [contact, setContact] = useState(false)
+  const [message, setMessage] = useState(null)
 
-  function showContact() {
+  function showContact() {    
     setContact(show => !show)
   }
 
@@ -22,39 +23,57 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_05kt7ok', 'template_hn0zttk', form.current, {
-        publicKey: 'vpsaU4skkrEhuZEZy',
-      })
+    .sendForm(
+      'service_klvtm8t', 
+      'template_hn0zttk', 
+      form.current, 
+      'vpsaU4skkrEhuZEZy'  // Public key as string, not object
+    )
       .then(
         () => {
           console.log('SUCCESS!');
+          setMessage('Message sent!')
         },
         (error) => {
           console.log('FAILED...', error.text);
+          setMessage('Failed to send message')
         },
       );
   };
 
   return (
     <>
-        <div className='contact-float' onClick={showContact}>
-            <span>Contact us</span>
-            <IoMdMail />
-        </div>
-        {contact ? 
+      {
+        message ? 
         <div className='contact-popup'>
-            <h1>Contact us</h1>
-            <div className='exit' onClick={showContact}><ImCross /></div>
-            <form ref={form} onSubmit={sendEmail}>
-                <input type='text' name='email' required placeholder='email' />
-                <input type='text' name='name' required placeholder='name' />
-                <textarea name='message' required placeholder='Write your message here'></textarea>
-                <button type='submit'>Submit</button>
-            </form>
+          <h1>{message}</h1>
+          <div className='exit' onClick={() => {
+            setMessage(null)
+            showContact()
+          }}><ImCross /></div>
         </div>
         :
-        ''
-        }
+        <>
+            <div className='contact-float' onClick={showContact}>
+                <span>Contact us</span>
+                <IoMdMail />
+            </div>
+            {contact ? 
+            <div className='contact-popup'>
+                <h1>Contact us</h1>
+                <div className='exit' onClick={showContact}><ImCross /></div>
+                <form ref={form} onSubmit={sendEmail}>
+                    <input type='text' name='email' required placeholder='email' />
+                    <input type='text' name='name' required placeholder='name' />
+                    <textarea name='message' required placeholder='Write your message here'></textarea>
+                    <button type='submit'>Submit</button>
+                </form>
+            </div>
+            :
+            ''
+            }
+        </>
+      }
     </>
   )
 }

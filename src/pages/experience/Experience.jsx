@@ -4,41 +4,41 @@ import './experience.css'
 const Experience = () => {
   return (
     <div className='experience-body'>
-      <div className={`experience-hex sheff-bg-img`}>
+      <a href='https://welcometosheffield.co.uk' target='_blank' className={`experience-hex sheff-bg-img`}>
         <div className='hex-cover'>
         </div>
-        <a href='https://welcometosheffield.co.uk' target='_blank'>
+        <h3>
             Sheffield
-        </a>
-      </div>
-      <div className={`experience-hex notts-bg-img`}>
+        </h3>
+      </a>
+      <a href='https://marketingnottingham.uk' target='_blank' className={`experience-hex notts-bg-img`}>
         <div className='hex-cover'>
         </div>
-        <a href='https://marketingnottingham.uk' target='_blank'>
+        <h3>
             Nottingham
-        </a>
-      </div>
-      <div className={`experience-hex north-bg-img`}>
+        </h3>
+      </a>
+      <a href='https://WeareNorthampton.com' target='_blank' className={`experience-hex north-bg-img`}>
         <div className='hex-cover'>
         </div>
-        <a href='https://WeareNorthampton.com' target='_blank'>
+        <h3>
             Northampton
-        </a>
-      </div>
-      <div className={`experience-hex sal-bg-img`}>
+        </h3>
+      </a>
+      <a href='https://TraditionalOriginal.com' target='_blank' className={`experience-hex sal-bg-img`}>
         <div className='hex-cover'>
         </div>
-        <a href='https://TraditionalOriginal.com' target='_blank'>
+        <h3>
             Salisbury
-        </a>
-      </div>
-            <div className={`experience-hex woking-bg-img`}>
+        </h3>
+      </a>
+      <a href='https://www.connecttowoking.co.uk' target='_blank' className={`experience-hex woking-bg-img`}>
         <div className='hex-cover'>
         </div>
-        <a href='https://www.connecttowoking.co.uk' target='_blank'>
+        <h3>
             Woking
-        </a>
-      </div>
+        </h3>
+      </a>
     </div>
   )
 }

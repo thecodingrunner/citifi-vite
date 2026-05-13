@@ -2,75 +2,136 @@
     position: fixed;
     bottom: 15px;
     right: 20px;
-    background-color: var(--text-yellow);
-    color: white;
+    background-color: #FFC03A90;
+    color: black;
     padding: 0.5rem 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
     border-radius: 2rem;
-    font-weight: bold;
+    font-weight: 300;
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 990;
+    z-index: 999;
+    
+    /* Add glass effect blur and border */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid #FFC03A30;
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 0 #FFC03A50;
 }
+
 .contact-float span {
     padding-bottom: 5px;
 }
 
 .contact-popup {
     position: fixed;
-    top: calc(50% - 32vh);
-    height: auto;
-    left: calc(50% - 20vw);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Use transform instead of translate */
     width: 40vw;
-    background-color: white;
-    color: var(--text-yellow);
+    max-width: 600px; /* Add max-width for very large screens */
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: black;
     z-index: 9999;
     padding: 50px;
     border-radius: 10px;
-    box-shadow: 0 1rem 1.5rem rgba(0,0,0,0.4);
+    font-weight: 300;
+    transition: all 0.5s ease-in-out;
+
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+
+    /* Refined border for glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* Shadow for depth */
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
 }
 
 .contact-popup h1 {
     margin: 0 0 20px;
+    font-weight: 300;
 }
 
 .contact-popup div.exit {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
+    top: 20px;
+    right: 20px;
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
 }
 
 .contact-popup form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-weight: 300;
 }
 
 form input, form textarea, form button {
-    border: solid 2px var(--text-yellow);
-    color: var(--text-yellow);
+    border: solid 2px black;
+    color: black;
     outline: none;
     font-size: 1.5rem;
     padding: 0.5rem 1rem;
     resize: none;
+    background-color: transparent;
+    border-radius: 5px;
+    font-weight: 300;
+}
+
+/* Style the placeholder text */
+form input::placeholder,
+form textarea::placeholder {
+    color: black;
+    opacity: 1;
+    font-weight: 300;
+}
+
+/* Firefox specific */
+form input::-moz-placeholder,
+form textarea::-moz-placeholder {
+    color: black;
+    opacity: 1;
+    font-weight: 300;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+form input::-webkit-input-placeholder,
+form textarea::-webkit-input-placeholder {
+    color: black;
+    font-weight: 300;
+}
+
+/* Microsoft Edge */
+form input::-ms-input-placeholder,
+form textarea::-ms-input-placeholder {
+    color: black;
+    font-weight: 300;
 }
 
 form button {
-    background-color: white;
+    background-color: transparent;
     transition: 0.5s ease;
+    cursor: pointer;
 }
 
 form button:hover {
-    background-color: var(--text-yellow);
-    color: white;
+    background-color: transparent;
+    color: black;
 }
 
 @media screen and (max-width: 1000px) {
     .contact-popup {
         width: 70vw;
-        left: calc(50% - 35vw);
     }
 }
 
@@ -81,17 +142,22 @@ form button:hover {
 
     .contact-popup {
         width: 90vw;
-        left: calc(50% - 45vw);
-        padding: 20px;
-        top: calc(50% - 25vh);
+        padding: 30px 20px;
     }
 
     .contact-popup h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .contact-popup div.exit {
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
     }
 
     .contact-float {
-        right: calc(50% - 95px);
+        right: 50%;
+        transform: translateX(50%);
         bottom: 2rem;
         box-shadow: 0 0.5rem 0.7rem rgba(0,0,0,0.4);
     }

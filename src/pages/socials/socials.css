@@ -1,0 +1,59 @@
+.socials-body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw; /* Add this */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    align-items: center;
+    margin: 0; /* Change from margin-top: 40px to margin: 0 */
+    padding: 40px; /* Use padding instead if you need the spacing */
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+}
+
+@media (max-width: 767px) {
+    .socials-body {
+        padding: 10px;
+    }
+}
+
+.socials-title {
+    text-align: center;
+    color: black;
+    z-index: 99;
+}
+
+.linkedin-feed {
+    width: 100%;
+    /* max-width: 1000px; */
+    height: 100%; /* Take remaining height */
+    max-height: 1000px; /* Matches your iframe height */
+    margin: 0 auto;
+    overflow: hidden; /* Contain the iframe */
+    z-index: 10;
+    position: relative;
+    margin-top: 40px;
+}
+
+/* .hex-background-socials {
+    position: absolute;
+    top: calc(50% - 500px);
+    left: calc(50% - 500px);
+    height: 1000px;
+    width: 1000px;
+    z-index: 1;
+    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    background-color: var(--text-yellow);
+    animation: pulse 2s ease-in-out infinite alternate;
+} */
+
+.linkedin-banner {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+}

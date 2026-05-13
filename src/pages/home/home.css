@@ -29,6 +29,12 @@
     background-image: url('../../assets/citifi-background-6.avif');
     background-size: cover;
     background-position: center;
+    
+    /* Use filter drop-shadow instead of box-shadow */
+    filter: 
+        drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3))
+        drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 @keyframes pulse {
@@ -40,15 +46,36 @@
     }
 }
 
+/* .textHome h1 {
+    color: var(--text-yellow);
+    font-size: 3rem;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+} */
+
 .textHome h1 {
     color: var(--text-yellow);
     font-size: 3rem;
     text-align: center;
+    background-color: white;
+    padding: 40px 60px;
+    
+    /* Flatter hexagon with ~130 degree angles */
+    -webkit-clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    
+    /* Inset shadows for hole effect */
+    box-shadow: 
+        inset 0 6px 12px rgba(0, 0, 0, 0.4),
+        inset 0 12px 24px rgba(0, 0, 0, 0.3),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+        inset 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
 .textHome {
     position: absolute;
-    top: calc(50% - 75px);
+    top: calc(50% - 100px);
     left: calc(50% - 40vw);
     display: flex;
     flex-direction: column;
