@@ -245,6 +245,10 @@ p {
 
 @media screen and (max-width: 700px) {
 
+    .what-body {
+        display: block;
+    }
+
     .hexagons {
         position: relative;
         height: calc(12vh + 750px + 6rem + 250px); /* hex4 bottom + gap */
