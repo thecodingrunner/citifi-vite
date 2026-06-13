@@ -2,6 +2,42 @@
     overflow: hidden;
     height: 100vh;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hex-cluster {
+    position: relative; /* was: position: absolute; inset: 0; */
+    width: 100%;
+    flex: 1;
+    transform-origin: center center;
+}
+
+.strategy-body .strategy-link {
+    z-index: 101;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+}
+
+.strategy-body .strategy-link:hover {
+    color: var(--text-yellow);
+}
+
+.reference {
+    position: static; /* was: position: absolute; bottom: 0; ... */
+    transform: none;
+    text-align: center;
 }
 
 .triangle {
@@ -20,7 +56,7 @@
 }
 
 .triangle:focus, .triangle:hover {           
-    font-size: 2rem;
+
     font-weight: 700;
     outline: none;
 }
@@ -134,12 +170,6 @@
     opacity: 1;
 }
 
-.reference {
-    position: absolute;
-    bottom: 20px;
-    left: calc(50% - 190px);
-}
-
 .arrow-right {
     font-size: 7rem;
     position: fixed;
@@ -169,6 +199,16 @@
 
 /* SMALL DEVICES */
 
+@media screen and (max-width: 700px) {
+        .strategy-body .strategy-link {
+        position: static;
+    }
+
+        .hex-cluster {
+        transform: scale(0.7);
+    }
+}
+
 @media screen and (max-width: 850px) {
     .arrow-right {
         font-size: 4rem;
@@ -181,16 +221,19 @@
         width: 70vw; 
     }
 
-    .reference {
-        position: absolute;
-        bottom: 5px;
-        left: calc(50% - 47.5vw);
-        width: 95vw;
-        text-align: center;
-        line-height: 0.8rem;
+    .hex-cluster {
+        transform: scale(0.7);
     }
+
+    .strategy-body {
+        padding-top: 100px;
+    }
+    
 
 }
 
 @media screen and (max-width: 500px) {
+    .hex-cluster {
+        transform: scale(0.6);
+    }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./what.css";
 import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const What = () => {
   const [hex1active, sethex1active] = useState(false);
@@ -140,7 +141,7 @@ const What = () => {
 
       {/* <div className='strategy'> */}
       <Link to="/strategy" className="strategy-link">
-        How We Work
+        How We Work <FaArrowRight />
       </Link>
       {/* </div> */}
     </div>

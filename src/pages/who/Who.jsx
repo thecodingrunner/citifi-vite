@@ -1,12 +1,18 @@
 import React from "react";
 import "./who.css";
 import PROFILE from "../../assets/brendan-profile.webp";
+import { FaLinkedin } from "react-icons/fa";
 
 const Who = () => {
   return (
     <div className="profile">
       <div className="profile__text">
-        <h1>Brendan Moffett</h1>
+        <div className="name">
+          <h1>Brendan Moffett</h1> 
+          <a href="https://www.linkedin.com/in/brendanmoffett/recent-activity/all/" target="_blank" className="linkedin">
+            <FaLinkedin />
+          </a>
+        </div>
         <h2>Managing Director</h2>
         <p>
           Brendan is a nationally recognised expert in place branding, economic

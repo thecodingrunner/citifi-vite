@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './strategy.css'
 import { MdArrowForwardIos } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft } from "react-icons/fa";
 
 const Strategy = () => {
   const [triangle1, settriangle1] = useState(false);
@@ -32,6 +34,7 @@ const Strategy = () => {
 
   return (
     <div className='strategy-body'>
+    <div className="hex-cluster">
       <button className={`triangle triangle-up triangle1 ${triangle1 ? 'viewTriangle viewTriangle1' : ''}`} onClick={setTriangle1}>Potential</button>
       <button className={`triangle triangle-up triangle2 ${triangle2 ? 'viewTriangle viewTriangle2' : ''}`} onClick={setTriangle2}>Place</button>
       <button className={`triangle triangle-up triangle3 ${triangle3 ? 'viewTriangle viewTriangle3' : ''}`} onClick={setTriangle3}>Prerequisites</button>
@@ -39,6 +42,14 @@ const Strategy = () => {
       <button className={`triangle triangle-down triangle5 ${triangle5 ? 'viewTriangle viewTriangle5' : ''}`} onClick={setTriangle5}>Pulse</button>
       <button className={`triangle triangle-down triangle6 ${triangle6 ? 'viewTriangle viewTriangle6' : ''}`} onClick={setTriangle6}>People</button>
       <div className='hex grey-hex'></div>
+    </div>
+
+          <div className='reference'>
+        Source: Anholt/Competitive Identity, place branding equity model
+      </div>
+      <Link to="/what" className="strategy-link">
+        <FaArrowLeft /> Back to what we do
+      </Link>
 
       <div className={`text ${triangle1 ? ' textTriangle1' : ''}`}>
         <h1>Potential</h1>
@@ -71,9 +82,7 @@ const Strategy = () => {
         <p className='flash'>Click to exit</p>
       </div>
 
-      <div className='reference'>
-        Source: Anholt/Competitive Identity, place branding equity model
-      </div>
+ 
 
       {/* <Link to='/strategy2' className='arrow-right'>
         <MdArrowForwardIos />

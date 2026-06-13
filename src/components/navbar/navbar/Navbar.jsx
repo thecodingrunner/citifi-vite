@@ -20,7 +20,7 @@ const Navbar = () => {
             <CustomLink to='/what' className='link' >What we do</CustomLink>
             <CustomLink to='/who' className='link' >Who we are</CustomLink>
             <CustomLink to='/experience' className='link' onClick={showMenu}>Our experience</CustomLink>
-            <CustomLink to='/socials' className='link' onClick={showMenu}>Socials</CustomLink>
+            <li><a href='https://www.linkedin.com/in/brendanmoffett/recent-activity/all/' className='link' onClick={showMenu} target='_blank'>LinkedIn</a></li>
         </ul>
 
         <button className={`hamburger`} onClick={showMenu} name='hamburger'>
@@ -33,7 +33,7 @@ const Navbar = () => {
             <CustomLink to='/what' className='link' onClick={showMenu}>What we do</CustomLink>
             <CustomLink to='/who' className='link' onClick={showMenu}>Who we are</CustomLink>
             <CustomLink to='/experience' className='link' onClick={showMenu}>Our experience</CustomLink>
-            <CustomLink to='/socials' className='link' onClick={showMenu}>Socials</CustomLink>
+            <li><a href='https://www.linkedin.com/in/brendanmoffett/recent-activity/all/' className='link' onClick={showMenu} target='_blank'>LinkedIn</a></li>
         </div>
     </nav>
   )
