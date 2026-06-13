@@ -1,0 +1,9 @@
+services:
+  citifi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: citifi-app
+    ports:
+      - "3003:80"
+    restart: always
