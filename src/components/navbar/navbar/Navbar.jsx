@@ -13,9 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className='nav'>
-        <Link to='/' className='site-title'>
-            <img src={LOGO} alt='citifi logo' className='logo'/>
-        </Link>
+        <a href="/" className="logo">CITIFI</a>
         <ul className='main-menu'>
             <CustomLink to='/what' className='link' >What we do</CustomLink>
             <CustomLink to='/who' className='link' >Who we are</CustomLink>

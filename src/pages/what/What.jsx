@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./what.css";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import HeroBackground from "../../components/home/hero-background/HeroBackground";
 
 const What = () => {
   const [hex1active, sethex1active] = useState(false);
@@ -41,6 +42,9 @@ const What = () => {
 
   return (
     <div className={`what-body no-overflow ${active ? "cutoff" : ""}`}>
+
+      <HeroBackground />
+
       <div className="hexagons">
         <button
           className={`small-hex hex hex1 ${
@@ -139,11 +143,9 @@ const What = () => {
         <p className="flash">Click to exit</p>
       </div>
 
-      {/* <div className='strategy'> */}
-      <Link to="/strategy" className="strategy-link">
+      {/* <Link to="/strategy" className="strategy-link">
         How We Work <FaArrowRight />
-      </Link>
-      {/* </div> */}
+      </Link> */}
     </div>
   );
 };

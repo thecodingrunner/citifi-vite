@@ -1,0 +1,41 @@
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;           /* behind the content (with isolation: isolate on .home-body) */
+  overflow: hidden;      /* clips the oversized hex in every browser */
+  pointer-events: none;
+}
+
+.home-background-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(110%);
+    opacity: 0.3;
+}
+
+.home-background-gradient {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+        ellipse at 50% 55%,
+        rgba(13, 14, 16, 0.35) 0%,
+        rgba(13, 14, 16, 0.85) 55%,
+        #0d0e10 85%
+    );
+}
+
+.home-background-hex {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(1240px, 140vw);
+    transform: translate(-50%, -46%);
+
+    @media (min-width: 500px) {
+        display: block;
+    }
+}

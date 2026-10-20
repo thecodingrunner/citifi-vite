@@ -9,6 +9,15 @@
     --text-yellow: #FFC03A;
     --text-black: #000000;
     --text-gray: #d0d0d0;
+
+    --ink: #0D0E10;
+    --charcoal: #17191C;
+    --graphite: #2A2D32;
+    --steel: #A3A9B1;
+    --silver: #C3C7CD;
+    --polished-silver: linear-gradient(135deg, #F1F2F4 0%, #C3C7CD 45%, #E3E5E8 62%, #9AA0A8 100%);
+    --white: #F2F3F5;
+    --spot-yellow: #FDC13B;
 }
 
 body, html {
