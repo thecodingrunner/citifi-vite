@@ -1,0 +1,34 @@
+/* pages/not-found/not-found.css */
+.not-found {
+  position: relative;
+  isolation: isolate;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.not-found h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.5rem, 2rem + 2vw, 4rem);
+  font-weight: 500;
+  color: var(--silver);
+}
+
+.not-found .highlight { color: var(--text-yellow); }
+
+.not-found p {
+  margin: 0 0 24px;
+  font-weight: 300;
+  color: var(--white, #e4e6e9);
+}
+
+.not-found__link {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background-image: var(--polished-silver);
+  color: var(--ink);
+  text-decoration: none;
+}
