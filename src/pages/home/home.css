@@ -1,112 +1,243 @@
-.home-body {
-    height: 100vh;
-    height: 100dvh;
-    position: relative;
-    overflow: hidden;
+:root {
+  --hex: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  --hex-width: min(600px, 92vw);
 }
 
+/* Silver frame */
 .hex-background {
-    position: absolute;
-    top: calc(50% - 60vmin);
-    left: calc(50% - 60vmin);
-    height: 120vmin;
-    width: 120vmin;
-    z-index: 1;
-    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-    background-color: var(--text-yellow);
-    animation: pulse 2s ease-in-out infinite alternate;
+  position: absolute;
+  inset: 0;
+  clip-path: var(--hex);
+  background-image: var(--polished-silver);
 }
 
+/* Photo, inset so the silver frame shows round it */
 .hex-image {
-    position: absolute;
-    top: calc(50% - 50vmin);
-    left: calc(50% - 50vmin);
-    z-index: 2;
-    height: 100vmin;
-    width: 100vmin;
-    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-    background-image: url('../../assets/citifi-background-6.avif');
-    background-size: cover;
-    background-position: center;
-
-    filter:
-        drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4))
-        drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3))
-        drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  position: absolute;
+  inset: 5.5%;
+  clip-path: var(--hex);
+  background: url("../../assets/citifi-background-6.webp") center / cover;
 }
 
-@keyframes pulse {
-    from { transform: scale(1); }
-    to { transform: scale(1.05); }
+.home-body {
+  position: relative;
+  isolation: isolate; /* keeps HeroBackground's -z-index behind this section */
+  min-height: 100dvh; /* min-height, not height, so mobile can scroll */
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+
+  @media (min-width: 1100) {
+    max-height: 100dvh;
+  }
 }
 
-.textHome h1 {
-    color: var(--text-yellow);
-    font-size: clamp(2rem, 5vw, 3rem);
+/* ---------- Layout ---------- */
+
+.home-grid {
+  flex: 1;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 48px 60px;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--hex-width) minmax(0, 1fr);
+  grid-template-areas: "left hive right";
+  align-items: center;
+  gap: 48px;
+}
+
+.home-side--left {
+  grid-area: left;
+  text-align: right;
+  animation: text-fade-up 0.9s ease-out 0.5s both;
+}
+.home-side--right {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: text-fade-up 0.9s ease-out 0.7s both;
+}
+
+.home-side p {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--steel, #a3a9b1);
+}
+
+.home-side .home-tagline {
+  font-size: clamp(28px, 2.5vw, 38px);
+  line-height: 1.25;
+  color: var(--white);
+}
+
+.home-spot {
+  color: var(--text-yellow);
+  font-weight: 400;
+}
+
+/* ---------- Hexagon ---------- */
+
+.hive {
+  grid-area: hive;
+  position: relative; /* children position against the hexagon */
+  width: var(--hex-width);
+  aspect-ratio: 1000 / 866;
+  animation:
+    hive-pulse 3.4s ease-in-out infinite,
+    image-zoom-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.home-content {
+  position: absolute;
+  inset: 0;
+  padding: 40px 12% 0; /* keeps buttons clear of the slanted edges */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  z-index: 1;
+}
+
+@keyframes hive-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(253, 193, 59, 0));
+  }
+  50% {
+    transform: scale(1.025);
+    filter: drop-shadow(0 0 38px rgba(253, 193, 59, 0.38));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hive {
+    animation: none;
+  }
+}
+
+/* ---------- Tablet & mobile: stack ---------- */
+
+@media screen and (max-width: 1100px) {
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "hive"
+      "left"
+      "right";
+    justify-items: center;
+    gap: 32px;
+    padding: 120px 20px 140px; /* bottom room for the floating Contact pill */
+  }
+
+  .home-side--left,
+  .home-side--right {
     text-align: center;
-    background-color: white;
-    padding: clamp(16px, 4vw, 40px) clamp(20px, 6vw, 60px);
-
-    -webkit-clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
-    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
-
-    box-shadow:
-        inset 0 6px 12px rgba(0, 0, 0, 0.4),
-        inset 0 12px 24px rgba(0, 0, 0, 0.3),
-        inset 0 -4px 8px rgba(0, 0, 0, 0.2),
-        inset 0 0 30px rgba(0, 0, 0, 0.15);
+    max-width: 620px;
+  }
 }
 
-.textHome {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
-    width: min(80vw, 700px);
-    color: var(--text-yellow);
+@media screen and (max-width: 500px) {
+  .home-content {
+    gap: 16px;
+    padding-top: 24px;
+  }
 }
 
-.textHome button {
-    border: 5px solid var(--text-yellow);
-    background-color: rgba(0,0,0,0.3);
-    font-family: inherit;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    padding: 5px 30px;
-    font-weight: bold;
-    color: var(--text-yellow);
+.home-content h1 {
+  color: var(--silver);
+  font-size: clamp(1.625rem, 1.063rem + 1.875vw, 2.75rem);
+  font-weight: 500;
+  text-align: center;
+  background-color: var(--graphite);
+  padding: clamp(0.625rem, 0.438rem + 0.625vw, 1rem)
+    clamp(1.375rem, 0.688rem + 2.292vw, 2.75rem);
+  line-height: 1.05;
+  margin: 0;
+
+  -webkit-clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+
+  box-shadow:
+    inset 0 6px 12px rgba(0, 0, 0, 0.4),
+    inset 0 12px 24px rgba(0, 0, 0, 0.3),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
-.textHome button:active {
-    transform: scale(0.99);
+.title-container {
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+  background: var(--silver);
+  padding: 2px;
 }
 
 /* SMALL DEVICES */
 
 @media screen and (max-width: 850px) {
-    .textHome {
-        width: min(85vw, 500px);
-    }
+  .home-content {
+    margin-inline: auto;
+    width: min(85vw, 500px);
+  }
+}
+/* 
+@media screen and (max-width: 500px) {
+  .hex-background {
+    height: 120vmin;
+    width: 120vmin;
+    top: calc(50% - 60vmin);
+    left: calc(50% - 60vmin);
+  }
+
+  .hex-image {
+    height: 110vmin;
+    width: 110vmin;
+    top: calc(50% - 55vmin);
+    left: calc(50% - 55vmin);
+  }
+} */
+
+/* BUTTONS */
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
-@media screen and (max-width: 500px) {
-    .hex-background {
-        height: 120vmin;
-        width: 120vmin;
-        top: calc(50% - 60vmin);
-        left: calc(50% - 60vmin);
-    }
+.button {
+  padding: 10px 24px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 21px;
+  text-decoration: none;
+  gap: 8px;
+  cursor: pointer;
+}
 
-    .hex-image {
-        height: 110vmin;
-        width: 110vmin;
-        top: calc(50% - 55vmin);
-        left: calc(50% - 55vmin);
-    }
+.button-primary {
+  background-image: var(--polished-silver);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.button-secondary {
+  background-image: var(--polished-silver);
+  color: var(--ink);
+  background: rgba(13, 14, 16, 0.6);
+  color: var(--white);
+  font-weight: 300;
+  border: 1px solid var(--silver);
+
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 }

@@ -1,149 +1,190 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./what.css";
-import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import HeroBackground from "../../components/home/hero-background/HeroBackground";
+import backgroundImage from "../../assets/citifi-background-1.webp";
+
+import imgStrategy from "../../assets/citifi-background-4.webp";
+import imgBrand from "../../assets/citifi-background-2.webp";
+import imgPartnerships from "../../assets/citifi-background-5.webp";
+import imgLeadership from "../../assets/citifi-background-1.webp";
+
+const SERVICES = [
+  {
+    id: "strategy",
+    n: "01",
+    title: "Strategy & Growth",
+    desc: "Helping organisations identify opportunities, define their direction and develop clear, commercially focused strategies.",
+    tags: [
+      "Business strategy",
+      "Growth planning",
+      "Place strategy",
+      "Proposition development",
+    ],
+    image: imgStrategy,
+  },
+  {
+    id: "brand",
+    n: "02",
+    title: "Brand & Marketing",
+    desc: "Creating compelling brands, narratives and marketing approaches that build profile, influence audiences and drive engagement.",
+    tags: [
+      "Brand positioning",
+      "Marketing strategy",
+      "Communications",
+      "Destination marketing",
+    ],
+    image: imgBrand,
+  },
+  {
+    id: "partnerships",
+    n: "03",
+    title: "Partnerships & Connections",
+    desc: "Bringing together organisations, people and opportunities to create mutually beneficial relationships and commercial value.",
+    tags: [
+      "Strategic partnerships",
+      "Sponsorship",
+      "Stakeholder engagement",
+      "Business development",
+    ],
+    image: imgPartnerships,
+  },
+  {
+    id: "leadership",
+    n: "04",
+    title: "Leadership & Mentoring",
+    desc: "Supporting business owners, emerging leaders and teams to build confidence, develop capabilities and navigate change.",
+    tags: [
+      "Executive mentoring",
+      "Business coaching",
+      "Leadership development",
+      "Strategic advice",
+    ],
+    image: imgLeadership,
+  },
+];
+
+const ArrowRight = () => (
+  <svg
+    className="button-icon"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.4"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+);
+
 
 const What = () => {
-  const [hex1active, sethex1active] = useState(false);
-  const [hex2active, sethex2active] = useState(false);
-  const [hex3active, sethex3active] = useState(false);
-  const [hex4active, sethex4active] = useState(false);
-  const [active, setActive] = useState(false);
+  const [openId, setOpenId] = useState(null);
+  const [origin, setOrigin] = useState({ x: "50%", y: "50%" });
+  const closeRef = useRef(null);
+  const triggerRef = useRef(null);
+
+  const open = SERVICES.find((s) => s.id === openId);
+
+  const handleOpen = (id, event) => {
+    const r = event.currentTarget.getBoundingClientRect();
+    setOrigin({
+      x: `${r.left + r.width / 2}px`,
+      y: `${r.top + r.height / 2}px`,
+    });
+    triggerRef.current = event.currentTarget;
+    setOpenId(id);
+  };
+
+  const handleClose = () => {
+    setOpenId(null);
+    triggerRef.current?.focus();
+  };
 
   useEffect(() => {
-    console.log(window.screenY);
-  }, [window.screenY]);
-
-  function setHex1() {
-    console.log(document.documentElement.scrollTop);
-    sethex1active((state) => !state);
-    setActive((state) => !state);
-  }
-
-  function setHex2() {
-    sethex2active((state) => !state);
-    setActive((state) => !state);
-  }
-
-  function setHex3() {
-    sethex3active((state) => !state);
-    setActive((state) => !state);
-  }
-
-  function setHex4() {
-    // if (!hex4active) {
-    //   window.scrollTo(0,0)
-    // }
-    console.log(document.body.scrollTop);
-    sethex4active((state) => !state);
-    setActive((state) => !state);
-  }
+    if (!openId) return;
+    document.body.classList.add("no-scroll");
+    closeRef.current?.focus();
+    const onKey = (e) => e.key === "Escape" && handleClose();
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.classList.remove("no-scroll");
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [openId]);
 
   return (
-    <div className={`what-body no-overflow ${active ? "cutoff" : ""}`}>
-      <div className="hexagons">
-        <button
-          className={`small-hex hex hex1 ${
-            hex1active ? " viewHex1 viewHex" : ""
-          }`}
-          onClick={setHex1}
-        >
-          Place Branding
-        </button>
-        <button
-          className={`small-hex hex hex2 ${
-            hex2active ? " viewHex2 viewHex" : ""
-          }`}
-          onClick={setHex2}
-        >
-          Place Plans and <br/> Partnerships
-        </button>
-        <button
-          className={`small-hex hex hex3 ${
-            hex3active ? " viewHex3 viewHex" : ""
-          }`}
-          onClick={setHex3}
-        >
-          Stakeholder Engagement
-        </button>
-        <button
-          className={`small-hex hex hex4 ${
-            hex4active ? " viewHex4 viewHex" : ""
-          }`}
-          onClick={setHex4}
-        >
-          Strategic Communications
-        </button>
-        <div className="large-hex hex"></div>
-        <div className="circle"></div>
-      </div>
+    <div className="what-body">
+      <HeroBackground image={backgroundImage} />
 
-      <div className={`textHex1 textHex ${hex1active ? " textView" : ""}`}>
-        <h1>Place Branding</h1>
-        <p>
-          At Citifi, our approach to place branding goes beyond traditional
-          marketing by uncovering and amplifying the authentic character,
-          values, culture, and assets that make a place truly unique. We work
-          closely with stakeholders to shape a compelling identity that
-          resonates with local aspirations and strategic goals. The result is a
-          curated, cohesive brand that not only reflects the spirit of the place
-          but also strengthens its appeal to investors, visitors, and talent.
-        </p>
-        <p className="flash">Click to exit</p>
-      </div>
-      <div className={`textHex2 textHex ${hex2active ? " textView" : ""}`}>
-        <h1>Place Plans and Partnerships</h1>
-        <p>
-          Citifi has played a pivotal role in helping places develop robust
-          place plans and place strategies by facilitating the creation of
-          strong, collaborative place partnerships. Citifi enables local
-          authorities, businesses, and community stakeholders to co-design
-          strategies that reflect local identity, needs, and aspirations. By
-          fostering shared ownership and aligning diverse interests, Citifi
-          helps build consensus around place-based goals, ensuring that plans
-          are not only visionary but also actionable and locally supported. This
-          partnership-led approach enhances resilience, unlocks investment, and
-          drives long-term, inclusive place transformation.
-        </p>
-        <p className="flash">Click to exit</p>
-      </div>
-      <div className={`textHex3 textHex ${hex3active ? " textView" : ""}`}>
-        <h1>Stakeholder Engagement</h1>
-        <p>
-          Citifi supports its clients by developing strong stakeholder
-          engagement methodologies that build trust, foster collaboration, and
-          ensure inclusive decision-making. By combining digital tools with
-          place-based insight, Citifi helps clients identify key stakeholder
-          groups, map their influence and interests, and design tailored
-          engagement strategies that promote meaningful participation. This
-          structured approach ensures that a wide range of voices—from residents
-          and local businesses to civic leaders and cultural organisations—are
-          heard and valued throughout the planning process. As a result, clients
-          benefit from greater community buy-in, reduced conflict, and more
-          resilient, locally grounded outcomes.
-        </p>
-        <p className="flash">Click to exit</p>
-      </div>
-      <div className={`textHex4 textHex ${hex4active ? " textView" : ""}`}>
-        <h1>Strategic Communications</h1>
-        <p>
-          At Citifi, we provide strategic communications advice that goes beyond
-          conventional messaging, helping clients articulate a clear, authentic,
-          and compelling narrative rooted in the unique identity of their place.
-          By aligning communications with local values, culture, and long-term
-          goals, we ensure that every message strengthens stakeholder
-          relationships and builds broader support. Our approach helps clients
-          craft cohesive, targeted communications that not only raise visibility
-          but also attract investment, talent, and community engagement.
-        </p>
-        <p className="flash">Click to exit</p>
-      </div>
+      <main className="what-main">
+        <header className="what-title">
+          <h1>
+            What we <span className="highlight">do</span>
+          </h1>
+          <p className="what-hint">Select a hexagon to explore</p>
+        </header>
 
-      {/* <div className='strategy'> */}
-      <Link to="/strategy" className="strategy-link">
-        How We Work <FaArrowRight />
-      </Link>
-      {/* </div> */}
+        <div className="honeycomb">
+          <div className="honeycomb-circle" aria-hidden="true" />
+
+          {SERVICES.map((s, i) => (
+            <button
+              key={s.id}
+              type="button"
+              className={`service-hex service-hex--${s.id}`}
+              style={{ "--delay": `${0.15 * (i + 1)}s` }}
+              onClick={(e) => handleOpen(s.id, e)}
+            >
+              <span className="service-hex__title">{s.title}</span>
+              <span className="service-hex__num">{s.n}</span>
+            </button>
+          ))}
+        </div>
+      </main>
+
+      {open && (
+        <div className="service-overlay" onClick={handleClose}>
+          <div 
+          className="service-zoom"
+          style={{ "--ox": origin.x, "--oy": origin.y }}
+          >
+            <div
+              className="service-detail-hex"
+              style={{ backgroundImage: `url(${open.image})` }}
+              aria-hidden="true"
+            />
+
+            <div
+              className="service-card"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="service-title"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <span className="service-card__num">{open.n}</span>
+              <h2 id="service-title">{open.title}</h2>
+              <p>{open.desc}</p>
+              <ul className="service-tags" aria-label="Services">
+                {open.tags.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
+              </ul>
+              <button
+                ref={closeRef}
+                type="button"
+                className="service-close"
+                onClick={handleClose}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

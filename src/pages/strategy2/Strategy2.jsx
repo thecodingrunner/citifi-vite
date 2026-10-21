@@ -1,6 +1,6 @@
 import React from 'react'
 import './strategy2.css'
-import MISSION from '../../assets/missionSnap.png'
+// import MISSION from '../../assets/missionSnap.png'
 import { MdArrowBackIos } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const Strategy2 = () => {
             <p>Once we have achieved this in partnership with our stakeholders we will then develop tailored campaigns for different audiences that reflect the brand positioning.</p>
         </div>
         <div className='image-strategy2'>
-            <img src={MISSION} alt='mission' ></img>
+            {/* <img src={MISSION} alt='mission' ></img> */}
         </div>
 
         <Link to='/strategy' className='arrow-left'>

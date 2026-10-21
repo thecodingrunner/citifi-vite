@@ -1,26 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 import './navbar.css'
-import LOGO from '../../../assets/citifi-logo-minimal.png'
-import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
-  const [menu, setMenu] = useState(false)
+  const [menu, setMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   function showMenu() {
     setMenu(prevState => !prevState)
   }
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className='nav'>
-        <Link to='/' className='site-title'>
-            <img src={LOGO} alt='citifi logo' className='logo'/>
-        </Link>
+    <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
+        <a href="/" className="logo">CITIFI</a>
         <ul className='main-menu'>
             <CustomLink to='/what' className='link' >What we do</CustomLink>
             <CustomLink to='/who' className='link' >Who we are</CustomLink>
-            <CustomLink to='/experience' className='link' onClick={showMenu}>Our experience</CustomLink>
-            <li><a href='https://www.linkedin.com/in/brendanmoffett/recent-activity/all/' className='link' onClick={showMenu} target='_blank'>LinkedIn</a></li>
+            <CustomLink to='/experience' className='link'>Our experience</CustomLink>
+            <li><a href='https://www.linkedin.com/in/brendanmoffett/recent-activity/all/' className='link' target='_blank'>LinkedIn</a></li>
         </ul>
 
         <button className={`hamburger`} onClick={showMenu} name='hamburger'>
