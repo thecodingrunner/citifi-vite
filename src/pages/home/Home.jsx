@@ -24,7 +24,7 @@ const Home = () => {
               <h1>Strategic Consultancy</h1>
             </div>
 
-            <div className="button-container">
+            {/* <div className="button-container">
               <a href="/what" className="button button-primary">
                 What we do
                 <svg
@@ -45,7 +45,7 @@ const Home = () => {
               <a href="/experience" className="button button-secondary">
                 Our experience
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
 

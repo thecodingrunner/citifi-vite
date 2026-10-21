@@ -96,7 +96,7 @@
 .home-content {
   position: absolute;
   inset: 0;
-  padding: 40px 12% 0; /* keeps buttons clear of the slanted edges */
+  padding: 0 12% 0; /* keeps buttons clear of the slanted edges */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,7 +134,7 @@
       "right";
     justify-items: center;
     gap: 32px;
-    padding: 120px 20px 140px; /* bottom room for the floating Contact pill */
+    padding: 120px 20px 120px; /* bottom room for the floating Contact pill */
   }
 
   .home-side--left,
@@ -142,12 +142,16 @@
     text-align: center;
     max-width: 620px;
   }
+
+  .home-side--right {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .home-content {
     gap: 16px;
-    padding-top: 24px;
+    /* padding-top: 24px; */
   }
 }
 
