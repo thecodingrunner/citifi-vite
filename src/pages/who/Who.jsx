@@ -24,7 +24,7 @@ const ArrowUpRight = () => (
 
 const Who = () => {
   return (
-    <div className="who-body"> 
+    <div className="who-body">
       <HeroBackground variant="side" image={towerImage} />
 
       <div className="profile">
@@ -42,17 +42,12 @@ const Who = () => {
           </div>
           <h2>Managing Director</h2>
           <p>
-            Brendan is a nationally recognised expert in place branding,
-            economic narrative development, and public sector strategy. With
-            over 20 years of experience at the intersection of marketing,
-            regeneration and economic development, Brendan has led high-profile
-            branding and investment positioning projects across the UK and
-            internationally.
-          </p>
-          <p>
-            He brings a unique blend of strategic vision, communications acumen,
-            and real-world implementation expertise—ensuring that place
-            strategies are not only inspiring but deliverable.
+            Brendan is an experienced strategic leader with over 20 years’
+            expertise in marketing, communications and partnership development.
+            He has a strong track record of shaping strategy, building
+            influential partnerships and delivering high-profile projects that
+            strengthen brands, drive investment and create opportunities for
+            growth.
           </p>
         </div>
 
