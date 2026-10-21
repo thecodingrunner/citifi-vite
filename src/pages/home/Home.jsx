@@ -42,8 +42,8 @@ const Home = () => {
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
-              <a href="/contact" className="button button-secondary">
-                Get in touch
+              <a href="/experience" className="button button-secondary">
+                Our experience
               </a>
             </div>
           </div>
