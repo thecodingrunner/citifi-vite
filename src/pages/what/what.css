@@ -16,12 +16,12 @@
   align-items: center;
   justify-content: center;
   gap: 36px;
-  padding: 200px 24px 140px; /* bottom room for the floating Contact pill */
+  padding: 100px 24px 20px; /* bottom room for the floating Contact pill */
   box-sizing: border-box;
 
-  @media (min-width: 700px) {
+  /* @media (min-width: 700px) {
     max-height: 100vh;
-  }
+  } */
 }
 
 .what-title {
@@ -318,7 +318,7 @@ body.no-scroll {
 @media screen and (max-width: 700px) {
   .what-main {
     justify-content: flex-start;
-    padding-top: 100px;
+    padding-top: 120px;
   }
 
   .honeycomb {

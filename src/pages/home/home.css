@@ -134,7 +134,7 @@
       "right";
     justify-items: center;
     gap: 32px;
-    padding: 80px 20px 140px; /* bottom room for the floating Contact pill */
+    padding: 120px 20px 140px; /* bottom room for the floating Contact pill */
   }
 
   .home-side--left,
