@@ -191,6 +191,7 @@
   .experience-body {
     justify-content: flex-start;
     padding-top: 100px;
+    padding-bottom: 120px;
   }
 
   .exp-strip {

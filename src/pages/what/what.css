@@ -319,6 +319,7 @@ body.no-scroll {
   .what-main {
     justify-content: flex-start;
     padding-top: 120px;
+    padding-bottom: 120px;
   }
 
   .honeycomb {
