@@ -1,14 +1,23 @@
 .nav {
-  width: 100vw;
   position: fixed;
   display: flex;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
   background-color: transparent;
-  z-index: 999;
+  z-index: 10;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav--scrolled {
+  background-color: rgba(13, 14, 16, 0.85);
+  backdrop-filter: blur(10px);
+  --webkit-backdrop-filter: blur(10px);
+  border-bottom-color: var(--graphite);
 }
 /* 
 .main-menu {
@@ -51,7 +60,7 @@
   text-decoration: none;
 }
 
-ul {
+.main-menu {
   list-style: none;
   display: flex;
   gap: 20px;
@@ -82,8 +91,10 @@ ul {
 .hamburger-menu {
   display: none;
   width: 100vw;
+  height: 100vh;
   list-style: none;
-  background-color: white;
+  background-color: var(--charcoal);
+  padding: 70px 0px 140px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,6 +117,7 @@ ul {
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  color: var(--white);
 }
 
 .hamburger {
@@ -116,8 +128,8 @@ ul {
 }
 
 :root {
-  --bar-height: 4px;
-  --bar-gap: 7px;
+  --bar-height: 2.4px;
+  --bar-gap: 8px;
 }
 
 .top-animate {
@@ -141,7 +153,6 @@ ul {
 
   .nav {
     justify-content: center;
-    background-color: white;
   }
 
   .hamburger {
@@ -155,10 +166,11 @@ ul {
 
   .bar {
     content: "";
-    width: 2rem;
-    height: 4px;
-    background-color: black;
+    width: 1.5rem;
+    height: 2.4px;
+    background-color: var(--white);
     transition: ease 1s;
+    border-radius: 10px;
   }
 
   .bar-top,
